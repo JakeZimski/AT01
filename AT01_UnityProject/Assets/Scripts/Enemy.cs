@@ -34,15 +34,20 @@ public class Enemy : MonoBehaviour
                 //Implement path finding here
                 else
                 {
-                    // find new target node
-                    // if target node is not the AIs current node and target node is not null
-                        // set current node to target node
-                    // else if player target node not null and player target node not current node
-                        //set current node to players target node
-
-                    // if current node is not null
-                        // set current direction towards node
-                        // normalize current direction
+                    Node targetNode = DepthFirstSearch(); // find new target node
+                    if(targetNode != currentNode & targetNode != null) // if target node is not the AIs current node and target node is not null
+                    {
+                        currentNode = targetNode; // set current node to target node
+                    }
+                    else if(GameManager.Instance.Player.TargetNode != null & GameManager.Instance.Player.TargetNode != currentNode) //else if player target node not null and player target node not current node
+                    {
+                        currentNode = GameManager.Instance.Player.TargetNode; //set current node to players target node
+                    }
+                    if(currentNode != null) // if current node is not null
+                    {
+                        currentDir = currentNode.transform.position - transform.position; // set current direction towards node
+                        currentDir = currentDir.normalized; // normalize current direction
+                    }
                 }
             }
             else
