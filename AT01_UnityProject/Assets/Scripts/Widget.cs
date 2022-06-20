@@ -61,6 +61,10 @@ public class Widget : MonoBehaviour
                             icons[0].color = Color.green;
                             return;
                         }
+                        else
+                        {
+                            icons[0].color = Color.red;
+                        }
                     }
                 }
                 break;
@@ -74,6 +78,10 @@ public class Widget : MonoBehaviour
                             player.MoveToNode(node);
                             icons[1].color = Color.green;
                             return;
+                        }
+                        else
+                        {
+                            icons[1].color = Color.red;
                         }
                     }
                 }
